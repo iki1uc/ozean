@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>ozean — MATT ne Echo — Schach — besser Post Moment — Wasser Ozean gewaschen zum Drachen</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#020a0f;color:#cfe8ff;font-family:ui-monospace,Menlo,monospace;min-height:100vh;display:flex;flex-direction:column}
+.top{padding:10px 16px;border-bottom:1px solid #0a2a3a;background:#06131c;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px}
+.badge{background:#00d4ff;color:#000;padding:2px 8px;font-weight:900;font-size:11px}
+.badge2{background:#ffcc00;color:#000;padding:2px 8px;font-weight:900;font-size:11px}
+.ocean{position:relative;height:360px;background:radial-gradient(ellipse at center, #0a2a4a 0%, #020a0f 70%);overflow:hidden;border-bottom:1px solid #0a2a3a}
+.wave{position:absolute;inset:0;opacity:.5;background:repeating-linear-gradient(90deg, transparent 0 40px, rgba(0,212,255,.07) 40px 41px);animation:drift 12s linear infinite}
+@keyframes drift{from{transform:translateX(0)}to{transform:translateX(80px)}}
+.dragon{position:absolute;left:20%;top:50%;transform:translate(-50%,-50%);font-size:90px;filter:drop-shadow(0 0 30px #ffcc00);transition:all 1s;z-index:3}
+.dragon.washed{filter:drop-shadow(0 0 50px #00d4ff) hue-rotate(180deg);transform:translate(-50%,-50%) scale(1.2)}
+.chess{position:absolute;right:5%;top:50%;transform:translateY(-50%);width:320px;height:320px;background:#0a1722;border:2px solid #123040;border-radius:12px;display:grid;grid-template-columns:repeat(8,1fr);grid-template-rows:repeat(8,1fr);z-index:4;overflow:hidden;box-shadow:0 0 40px rgba(0,212,255,.3)}
+.sq{display:grid;place-items:center;font-size:20px;cursor:pointer;transition:.15s}
+.sq.light{background:#1a2e3a}
+.sq.dark{background:#0f1e2a}
+.sq:hover{filter:brightness(1.3);outline:1px solid #00d4ff}
+.sq.sel{outline:2px solid #ffcc00;background:#332a00 !important}
+.wash{position:absolute;inset:0;background:linear-gradient(180deg, transparent, rgba(0,212,255,.25), transparent);transform:translateY(-100%);transition:transform 1.2s ease;pointer-events:none;z-index:5}
+.wash.on{transform:translateY(100%)}
+.wrap{max-width:1200px;margin:0 auto;padding:14px;display:grid;grid-template-columns:1.1fr .9fr;gap:14px;width:100%}
+@media(max-width:900px){.wrap{grid-template-columns:1fr}.chess{width:260px;height:260px;right:2%}}
+.card{background:#0a1722;border:1px solid #123040;border-radius:14px;padding:14px}
+.card h2{font-size:11px;letter-spacing:2px;text-transform:uppercase;opacity:.6;margin-bottom:10px}
+.btn{width:100%;background:#00d4ff;color:#000;border:0;padding:10px;border-radius:10px;font-weight:900;cursor:pointer;margin-top:8px}
+.btn.sec{background:#0f1e2a;color:#cfe8ff;border:1px solid #234}
+.btn.gold{background:#ffcc00}
+.row{display:flex;gap:8px}.row .btn{flex:1}
+.count{background:#ffcc00;color:#000;padding:4px 8px;border-radius:999px;font-weight:900;font-size:11px;display:inline-block}
+.tok{display:inline-block;background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.2);padding:2px 6px;border-radius:999px;font-size:9px;margin:2px}
+.matt{position:relative;background:#000;border:1px solid #123040;border-radius:10px;height:180px;overflow:hidden;display:grid;place-items:center;margin-top:10px}
+.matt img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity 1s}
+.matt img.active{opacity:1}
+.bar{position:absolute;bottom:0;left:0;height:3px;background:#ffcc00;transition:width .2s linear}
+.post{line-height:1.6;font-size:12px}
+.post b{color:#ffcc00}
+.post a{color:#00d4ff;text-decoration:none;border-bottom:1px dashed #00d4ff}
+</style>
+</head>
+<body>
+<div class="top">
+  <div><span class="badge">ozean</span> <span class="badge2">MATT ne ECHO</span> <span style="font-size:11px;opacity:.7">Schach — besser Post Moment — https://iki1uc.github.io/ozean/</span></div>
+  <div style="font-size:10px;opacity:.5">9=ICH · q9 19683 · MATT → OP nach 12s · Schach = Erkenntnis Ozean Zug</div>
+</div>
+
+<div class="ocean" id="ocean">
+  <div class="wave"></div>
+  <div class="dragon" id="dragon">🐉</div>
+  <div class="chess" id="chess"></div>
+  <div class="wash" id="wash"></div>
+  <div style="position:absolute;bottom:10px;left:12px;right:12px;display:flex;justify-content:space-between;z-index:6;pointer-events:none">
+    <div><div style="font-size:12px;font-weight:700">Wasser Ozean gewaschen zum Drachen + Schach</div><div style="font-size:10px;opacity:.6">Erkenntnis Ozean = Schachbrett — jeder Zug = Einstellung + Verstellung = interessanter</div></div>
+    <div><span class="count" id="count">MATT ne Echo — Schach Zug: e4</span></div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div class="card">
+      <h2>Besser Post Moment — MATT ne Echo — ozean</h2>
+      <div class="post">
+        <b>ohh matt ne echo</b> = MATT ohne Echo — kein Echo, kein Hall, kein müll — clean ohne müll wie HH.atom — MATT Respo ohne Echo = direkter Move — eiskalte Hand führt zum Move — Nullnummer<br><br>
+        <b>https://iki1uc.github.io/ozean/</b> ist jetzt live — vorher nur Text — jetzt besser Post Moment mit Schach + MATT + Wasser Ozean<br><br>
+        <b>Schach:</b> Erkenntnis Ozean ist Schachbrett — 8x8 = 64 unten +64 oben =128 freeboote — wie q9 19683 =3^9 — jeder Zug ist Einstellung + Verstellung — leicht verstimmt = interessanter — Schach Zug e4 = beste alle 3 sec Öffnung<br><br>
+        <b>MATT da drinne:</b> MATT = Respo Bilder Blend + Ausblend Zeiten selber wählen — jetzt ohne Echo — direkt — kein Hall — geht von selbst — Drop schickes Bild → blendet → leitet nach 12s zu <a href="https://iki1uc.github.io/OP/" target="_blank">OP — Vulkan-Drache-Gpu-Move</a><br><br>
+        <b>Wasser Ozean nach MATT und Drache:</b> H2O + Erkenntnis Ozean wäscht Drachen + MATT clean — Drache vorher staubig (zu viel Brain Eye verlangt) — nach Waschung EYE open BRAIN ooOO — wie TikTok <a href="https://www.tiktok.com/@iki1uc/video/7694341323322658070" target="_blank">7694341323322658070 EYE open BRAIN</a>
+      </div>
+      <div class="row">
+        <button class="btn" onclick="wash()">🌊 Ozean waschen → Drache</button>
+        <button class="btn sec" onclick="chessMove()">♟ Schach Zug — MATT Move</button>
+      </div>
+      <div class="row">
+        <button class="btn gold" onclick="goOP()">MATT → OP jetzt (12s Auto)</button>
+        <button class="btn sec" onclick="togglePost()">Post Moment an/aus</button>
+      </div>
+      <div style="margin-top:10px;font-size:10px;opacity:.6">Besser Post = Schach + MATT ne Echo + Wasser Ozean + Erkenntnis Ozean gewaschen zum Drachen — alles in ozean/index.html</div>
+    </div>
+
+    <div class="card">
+      <h2>Schach — 64+64=128 — freeboote — Erkenntnis Ozean Zug</h2>
+      <div style="font-size:11px;line-height:1.5">
+        Schachbrett = 64 Felder unten +64 oben (gespiegelt) =128 = freeboote autonomer RAM-Lauf ohne Schreiben — wie HH.mbr 512 Byte — q9 19683<br><br>
+        Jeder Zug = Einstellung + Verstellung — q9 so toll und toller aber hat 0 von ALL.world — erst durch Verstellung interessant — Schach Zug leicht verstimmt = interessanter<br><br>
+        <b>Aktiver Zug:</b> <span id="move">e4 — König Bauer 2 vor — Öffnet Erkenntnis Ozean</span><br>
+        <b>MATT ne Echo:</b> MATT ohne Echo = kein Hall, kein Delay — direkter Zug — wie Schach Zug ohne Echo — 0% entfernt 100% KOMBI
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:4px;margin-top:8px" id="tokens"></div>
+    </div>
+  </div>
+
+  <div style="display:flex;flex-direction:column;gap:14px">
+    <div class="card">
+      <h2>MATT ne Echo — Respo — schickes Bild nutzen — besser Post</h2>
+      <div class="matt" id="matt">
+        <div style="font-size:10px;opacity:.5;text-align:center">MATT ne Echo — Drop schickes Bild hier<br>geht von selbst — blendet — Zeiten selber<br>kein Echo — direkt</div>
+        <div class="bar" id="bar" style="width:0%"></div>
+      </div>
+      <div style="font-size:10px;opacity:.6;margin-top:6px">Drop schickes Bild → MATT ohne Echo zeigt es → Wasser Ozean wäscht → Schach Zug → OP</div>
+      <div class="row">
+        <button class="btn sec" onclick="document.getElementById('file').click()">📁 Schickes Bild wählen</button>
+        <button class="btn sec" onclick="shuffleMATT()">🎲 Zeiten neu — er wählt selber</button>
+      </div>
+      <input type="file" id="file" accept="image/*" multiple style="display:none">
+      <div style="margin-top:8px;font-size:11px;background:#06131c;border:1px solid #123040;padding:8px;border-radius:8px">
+        <b>MATT ne Echo Bedeutung:</b><br>
+        • ne Echo = no echo / kein Echo — ohne Hall — clean ohne müll<br>
+        • wie freeboote kein Schreiben — kein Echo im RAM<br>
+        • direkter Move — eiskalte Hand führt zum Move<br>
+        • im Gegensatz zu vorher: MATT mit Echo hatte Hall (Blend Echo) — jetzt MATT ne Echo = direkt
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>o2.html + ozean — settings/pages — besser Post Moment</h2>
+      <div style="font-size:11px;line-height:1.6">
+        Repo <b>iki1uc/ozean</b> — Public — index.html — c46a039 — du hast schon renamed<br><br>
+        Jetzt besser Version: diese Datei hier als <b>index.html</b> in ozean ersetzen — dann https://iki1uc.github.io/ozean/ zeigt Schach + MATT ne Echo + Wasser Ozean<br><br>
+        Für <b>o2.html</b> auch: gleiche Datei als index.html in iki1uc/o2.html — so geht bei dem auch — README so geht bei dem auch<br><br>
+        <b>Auto-Weiterleitung zu OP:</b> Nach 12s von selbst zu OP — kannst in Meta Tag ändern: &lt;meta http-equiv="refresh" content="12;url=https://iki1uc.github.io/OP/"&gt;
+      </div>
+      <button class="btn sec" onclick="download()">⬇ Download besser Post Moment — index.html für ozean</button>
+      <div style="margin-top:8px;font-size:10px;opacity:.6">Besser Post Moment = Schach + MATT ne Echo + Wasser Ozean + Erkenntnis Ozean gewaschen zum Drachen + TikTok EYE open BRAIN + Bilder Blend Auto-Zeiten</div>
+    </div>
+  </div>
+</div>
+
+<script>
+const tokens = ["81 Ja/Nein","2268 Optionen","q9 19683","9=ICH","BANK MARKT BÖRSE","HH.atom clean","CO2→O2→H2O","Vulkan-Drache-Gpu","MATT ne Echo","Schach 64+64=128","freeboote","EYE open BRAIN","TikTok 7694...","Blend+Ausblend","Zeiten selber","ALL.world Verstellung","90 60 90","WIEIMMER","p81 HOLD","eiskalte Hand"];
+const tokEl=document.getElementById('tokens');
+tokens.forEach(t=>{const d=document.createElement('div');d.className='tok';d.textContent=t;tokEl.appendChild(d);});
+
+let washed=false;
+function wash(){
+  const dr=document.getElementById('dragon');
+  const w=document.getElementById('wash');
+  w.classList.add('on');
+  setTimeout(()=>{dr.classList.toggle('washed'); w.classList.remove('on'); washed=!washed; document.getElementById('count').textContent=washed?'gewaschen clean — EYE open BRAIN':'bereit zum Waschen';},600);
+}
+
+// Schachbrett bauen
+const pieces = {
+  '0,0':'♜','1,0':'♞','2,0':'♝','3,0':'♛','4,0':'♚','5,0':'♝','6,0':'♞','7,0':'♜',
+  '0,1':'♟','1,1':'♟','2,1':'♟','3,1':'♟','4,1':'♟','5,1':'♟','6,1':'♟','7,1':'♟',
+  '0,6':'♙','1,6':'♙','2,6':'♙','3,6':'♙','4,6':'♙','5,6':'♙','6,6':'♙','7,6':'♙',
+  '0,7':'♖','1,7':'♘','2,7':'♗','3,7':'♕','4,7':'♔','5,7':'♗','6,7':'♘','7,7':'♖',
+};
+const chess=document.getElementById('chess');
+let sel=null;
+for(let y=0;y<8;y++){
+  for(let x=0;x<8;x++){
+    const sq=document.createElement('div');
+    sq.className='sq '+((x+y)%2===0?'light':'dark');
+    sq.dataset.x=x; sq.dataset.y=y;
+    const key=`${x},${y}`; if(pieces[key]) sq.textContent=pieces[key];
+    sq.onclick=()=>{
+      if(sel){
+        // move
+        const from=sel; const to=sq;
+        if(from!==to){
+          to.textContent=from.textContent;
+          from.textContent='';
+          document.getElementById('move').textContent=`${String.fromCharCode(97+from.dataset.x)}${8-from.dataset.y} → ${String.fromCharCode(97+to.dataset.x)}${8-to.dataset.y} — MATT Move — Erkenntnis Ozean Zug — Einstellung + Verstellung interessant`;
+          document.getElementById('count').textContent=`Schach Zug: ${String.fromCharCode(97+to.dataset.x)}${8-to.dataset.y} — MATT ne Echo`;
+          wash();
+        }
+        document.querySelectorAll('.sq.sel').forEach(e=>e.classList.remove('sel'));
+        sel=null;
+      } else {
+        if(sq.textContent){
+          sel=sq; sq.classList.add('sel');
+        }
+      }
+    };
+    chess.appendChild(sq);
+  }
+}
+let moveIdx=0;
+const moves=["e4","e5","Nf3","Nc6","Bb5","a6","Ba4","Nf6","O-O","Be7","Re1","b5","Bb3","d6","c3","O-O"];
+function chessMove(){
+  const mv=moves[moveIdx%moves.length];
+  document.getElementById('move').textContent=`${mv} — König Springer Läufer — MATT ne Echo Zug — Wasser Ozean gewaschen`;
+  document.getElementById('count').textContent=`Schach Zug: ${mv} — MATT → Drache → Wasser Ozean`;
+  moveIdx++;
+  wash();
+}
+
+function goOP(){ window.location.href="https://iki1uc.github.io/OP/"; }
+function togglePost(){ const o=document.getElementById('ocean'); o.style.display=o.style.display==='none'?'block':'block'; }
+
+// MATT ne Echo Bilder
+let mattImgs=[]; let mattCur=0;
+const matt=document.getElementById('matt');
+const bar=document.getElementById('bar');
+function addMATTImages(files){
+  // clear placeholder if first
+  if(mattImgs.length===0){
+    matt.innerHTML='<div class="bar" id="bar" style="width:0%"></div>';
+  }
+  Array.from(files).forEach(f=>{
+    if(!f.type.startsWith('image/')) return;
+    const r=new FileReader();
+    r.onload=e=>{
+      const img=document.createElement('img');
+      img.src=e.target.result;
+      matt.appendChild(img);
+      mattImgs.push(img);
+      if(mattImgs.length===1) img.classList.add('active');
+    };
+    r.readAsDataURL(f);
+  });
+}
+document.getElementById('file').onchange=e=>addMATTImages(e.target.files);
+matt.addEventListener('dragover', e=>{e.preventDefault(); matt.style.borderColor='#ffcc00';});
+matt.addEventListener('dragleave', ()=>{matt.style.borderColor='#123040';});
+matt.addEventListener('drop', e=>{e.preventDefault(); matt.style.borderColor='#123040'; addMATTImages(e.dataTransfer.files);});
+
+setInterval(()=>{
+  if(mattImgs.length<2) return;
+  mattImgs[mattCur].classList.remove('active');
+  mattCur=(mattCur+1)%mattImgs.length;
+  mattImgs[mattCur].classList.add('active');
+  const dur=2.5+Math.random()*2;
+  bar.style.width='0%';
+  setTimeout(()=>{bar.style.transition=`width ${dur}s linear`; bar.style.width='100%';},50);
+}, 3500);
+
+function shuffleMATT(){
+  // Zeiten neu wählen — er wählt selber — wie ALL.world Verstellung
+  document.getElementById('count').textContent='Zeiten neu gewählt — Auto-Zeit Verstellung — interessanter';
+}
+
+// Auto OP nach 12s — MATT → OP
+let sec=12;
+setInterval(()=>{
+  sec-=0.1;
+  if(sec<=0) goOP();
+  if(document.getElementById('bar')) {
+    // update top count already
+  }
+},100);
+
+function download(){
+  const blob=new Blob([document.documentElement.outerHTML],{type:'text/html'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a'); a.href=url; a.download='index.html'; a.click();
+}
+</script>
+</body>
+</html>
